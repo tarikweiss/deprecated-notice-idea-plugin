@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "de.tarikweiss.deprecatednotice"
-version = "1.0-SNAPSHOT"
+version = "1.1-SNAPSHOT"
 
 intellijPlatform {
     pluginConfiguration {
@@ -24,7 +24,7 @@ repositories {
 
 dependencies {
     intellijPlatform {
-        phpstorm("2024.3")
+        phpstorm("2024.2")
         bundledPlugin("com.jetbrains.php")
 
         zipSigner()

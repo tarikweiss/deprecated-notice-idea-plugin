@@ -20,11 +20,5 @@
     <!-- Product and plugin compatibility requirements.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
-    <depends>com.jetbrains.php</depends>
-
-    <!-- Extension points defined by the plugin.
-         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
-    <extensions defaultExtensionNs="com.intellij">
-        <annotator language="PHP" implementationClass="de.tarikweiss.deprecatednotice.DeprecatedAnnotator"/>
-    </extensions>
+    <depends config-file="phpstorm.xml">com.jetbrains.php</depends>
 </idea-plugin>
