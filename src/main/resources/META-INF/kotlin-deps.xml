@@ -1,0 +1,14 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <extensions defaultExtensionNs="com.intellij">
+        <localInspection language="kotlin"
+                         implementationClass="de.tarikweiss.deprecatednotice.KotlinDeprecatedInspection"
+                         displayName="Deprecated (Source)"
+                         groupPath="Kotlin"
+                         groupName="Other problems"
+                         enabledByDefault="true"
+                         level="WEAK WARNING"
+                         editorAttributes="DEPRECATED_ATTRIBUTES"
+        />
+    </extensions>
+</idea-plugin>

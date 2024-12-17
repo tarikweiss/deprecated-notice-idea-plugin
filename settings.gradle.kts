@@ -6,3 +6,5 @@ pluginManagement {
 }
 
 rootProject.name = "deprecated-notice"
+
+include("phpstorm")

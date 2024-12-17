@@ -12,14 +12,17 @@ class PhpStormDeprecatedInspection : LocalInspectionTool() {
     override fun buildVisitor(holder: ProblemsHolder, isOnTheFly: Boolean): PsiElementVisitor {
         return object : PsiElementVisitor() {
             override fun visitElement(element: PsiElement) {
-                if (element is PhpNamedElement)                {
+                if (element is PhpNamedElement) {
                     if (!element.isDeprecated) {
                         return
                     }
 
                     val identifyingElement = element.identifyingElement ?: return
 
-                    holder.registerProblem(identifyingElement, "'${element.name}' is deprecated. Consider using an adequate replacement.")
+                    holder.registerProblem(
+                        identifyingElement,
+                        "'${element.name}' is deprecated. Consider using an adequate replacement."
+                    )
                 }
                 super.visitElement(element)
             }

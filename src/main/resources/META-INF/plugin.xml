@@ -20,5 +20,7 @@
     <!-- Product and plugin compatibility requirements.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
-    <depends config-file="phpstorm.xml">com.jetbrains.php</depends>
+    <depends optional="true" config-file="java-deps.xml">com.intellij.java</depends>
+    <depends optional="true" config-file="kotlin-deps.xml">org.jetbrains.kotlin</depends>
+    <depends optional="true" config-file="phpstorm.xml">com.jetbrains.php</depends>
 </idea-plugin>

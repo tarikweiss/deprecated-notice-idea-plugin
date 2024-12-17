@@ -1,0 +1,14 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <extensions defaultExtensionNs="com.intellij">
+        <localInspection language="JAVA"
+                         implementationClass="de.tarikweiss.deprecatednotice.JavaDeprecatedInspection"
+                         displayName="Deprecated (Source)"
+                         groupPath="Java"
+                         groupName="Code maturity"
+                         enabledByDefault="true"
+                         level="WEAK WARNING"
+                         editorAttributes="DEPRECATED_ATTRIBUTES"
+        />
+    </extensions>
+</idea-plugin>

@@ -1,18 +1,26 @@
+import org.jetbrains.intellij.platform.gradle.IntelliJPlatformType
+
 plugins {
     id("java")
     id("org.jetbrains.kotlin.jvm") version "1.9.25"
-    id("org.jetbrains.intellij.platform") version "2.1.0"
+    id("org.jetbrains.intellij.platform") version "2.2.0"
 }
 
 group = "de.tarikweiss.deprecatednotice"
-version = "1.1-SNAPSHOT"
+version = "1.2-SNAPSHOT"
+
+val sinceBuildNumber = 242.toString()
+val untilBuildNumber = 243.toString() + ".*"
 
 intellijPlatform {
     pluginConfiguration {
         ideaVersion {
-            sinceBuild = "241"
+            sinceBuild = sinceBuildNumber
+            untilBuild = untilBuildNumber
         }
     }
+    instrumentCode = false
+    buildSearchableOptions = false
 }
 
 repositories {
@@ -24,22 +32,22 @@ repositories {
 
 dependencies {
     intellijPlatform {
-        phpstorm("2024.2")
-        bundledPlugin("com.jetbrains.php")
+        create(IntelliJPlatformType.IntellijIdeaUltimate, "2024.2")
+        bundledPlugin("org.jetbrains.kotlin")
+        pluginModule(implementation(project(":phpstorm")))
 
         zipSigner()
-        instrumentationTools()
     }
 }
 
 tasks {
     // Set the JVM compatibility versions
     withType<JavaCompile> {
-        sourceCompatibility = "17"
-        targetCompatibility = "17"
+        sourceCompatibility = "21"
+        targetCompatibility = "21"
     }
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions.jvmTarget = "17"
+        kotlinOptions.jvmTarget = "21"
     }
     signPlugin {
         certificateChain.set(System.getenv("CERTIFICATE_CHAIN"))
