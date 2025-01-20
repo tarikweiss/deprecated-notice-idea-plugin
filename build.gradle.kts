@@ -7,10 +7,10 @@ plugins {
 }
 
 group = "de.tarikweiss.deprecatednotice"
-version = "1.2-SNAPSHOT"
+version = "1.3-SNAPSHOT"
 
 val sinceBuildNumber = 242.toString()
-val untilBuildNumber = 243.toString() + ".*"
+val untilBuildNumber = 244.toString() + ".*"
 
 intellijPlatform {
     pluginConfiguration {
@@ -32,7 +32,7 @@ repositories {
 
 dependencies {
     intellijPlatform {
-        create(IntelliJPlatformType.IntellijIdeaUltimate, "2024.2")
+        intellijIdeaCommunity("2024.2")
         bundledPlugin("org.jetbrains.kotlin")
         pluginModule(implementation(project(":phpstorm")))
 
